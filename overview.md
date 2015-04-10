@@ -61,3 +61,9 @@ produced per peer.
 - Allow the end user to provide data to be processed
 - Allow the end user to describe the computation to be performed
 - Allow the end user to provide the expected result
+- 
+### Copyright
+
+Copyright 2015 Maxwell Renke
+
+All rights reserved.
