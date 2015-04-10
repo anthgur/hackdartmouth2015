@@ -1,6 +1,6 @@
 ## Overview
-The goal of this project is to create a centralized currency backed by distributed computation for nonprofit
-organizations. A peer to peer mobile application, centralized distribution network, and
+The goal of this project is to create a centralized digital currency backed by distributed computation for nonprofit
+organizations. A peer to peer mobile application, centralized distribution network, desktop application and
 computation-specific API will be created to develop a working proof of concept.
 
 ## Rationale
@@ -41,13 +41,19 @@ distributed must be normalized across all end-user organizations.
 Each distributed set of computation is regulated and tied directly to the amount of currency being
 produced per peer.
 
+Peer identity, currency transfers, centralized distributed network integrity, and other operations need to be done securely, but for this purposes of this proof of concept are not.
+
 ## Design
+
+There are a lot of design desicions and either implicitly or explicitly avoids complexity and makes assumptions about how elements may work in the future in an effort to simply the design enough to be developed into a proof of concept. The project will start with a limited number of peers and end-user organizations, a single CDN, and a very limited set of peers computation will be distributed to. Other considerations and assumptions are stated above.
+
 ### Mobile Application
+- Manage peer identities
 - Receive distribution of currency from centralized network
 - Store distributed currency
-- Transfer currency among peers
-- Select among potential end-user organizations to perform computations
-- Interface with centralized network to perform computation
+- Send currency to peer
+- Receive currency from peer
+- Interface with desktop application to manage computation preference
 
 ### Centralized Distribution Network
 - Manage end-user organizations
@@ -56,12 +62,24 @@ produced per peer.
 - Distribute computation among peers
 - Distribute currency to peers
 
+### Desktop Application
+- Manage peer identities
+- Select among potential end-user organizations to perform computations
+- Interface with centralized network to perform computation
+
+
 ### Computation-Specific API
 - Interface with the centralized distribution network to perform computations
 - Allow the end user to provide data to be processed
 - Allow the end user to describe the computation to be performed
 - Allow the end user to provide the expected result
-- 
+
+## Centralized Distributed Network (CDN)
+
+The CDN will be the backbone of this project. The mobile application, desktop application, and API will all hook into the network. The CDN handles the production and distribution of both computation and currency.
+
+The mobile application will interface with a database of peer identities to tie a peer to the mobile application. The peer will then receive its internal CDN address which will be presented to the mobile user to allow them to transfer the currency. Currency will be stored on the CDN and accessed through the mobile application (no currency, for the moment, will be stored on the device)
+
 ### Copyright
 
 Copyright 2015 Maxwell Renke
