@@ -1,9 +1,7 @@
 var express = require('express');
 var router = express.Router();
  
-router.get('/', function(req, res) {
-	console.dir(req.param);
-
+router.get('/webapp', function(req, res) {
     if (req.method == 'POST') {
         /*var body = '';
         req.on('data', function (data) {
