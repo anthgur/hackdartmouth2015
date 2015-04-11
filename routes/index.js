@@ -1,16 +1,9 @@
-var express = require("express");
-var fs = require('fs');
-var sys = require('sys');
+var express = require('express');
+var router = express.Router();
 
-var app = express();
-    app.use(express.logger());
-    app.set("view options", {layout: false});
-    app.use(express.static(__dirname + '/views'));
-
-app.get('/', function(req, res){
-    res.render('/home.html');
+router.get('/', function(req, res) {
+  res.json({ message: "Oh hai" });
 });
 
-app.listen(8080);
-console.log('Express server started');
+module.exports = router;
 
