@@ -1,0 +1,22 @@
+<html>
+<body>
+<form action="server.js" method="POST" enctype="application/json">
+	
+	<input name='name' value='END_USER'>
+	
+	<input type="hidden" name='orgID' value='00001'>
+	
+	<input name='inputData' value='[0,1,2,3,4,5]'>
+	
+	<select name='command'>
+		<option selected>average</option>
+		<option>median</option>
+		<option>min</option>
+		<option>max</option>
+	</select>
+	
+	<input type="submit" value="Submit">
+	
+</form>
+</body>
+</html>
