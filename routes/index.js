@@ -6,7 +6,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/webapp', function(req, res) {
-  fs.readFile('./index.html', function (err, html) {
+  fs.readFile('./webapp.html', function (err, html) {
     if (err) {
         throw err; 
     }       
