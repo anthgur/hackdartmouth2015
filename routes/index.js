@@ -5,7 +5,6 @@ router.get('/', function(req, res) {
 	console.dir(req.param);
 
     if (req.method == 'POST') {
-        console.log("POST");
         /*var body = '';
         req.on('data', function (data) {
             body += data;
