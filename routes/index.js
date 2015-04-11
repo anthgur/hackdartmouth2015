@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
- 
+
+app.use(express.bodyParser());
+
 router.post('/webapp', function(req, res) {
     if (req.method == 'POST') {
-		res.json({ message: "POST" });
     }
     else
     {
