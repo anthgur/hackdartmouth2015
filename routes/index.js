@@ -19,11 +19,7 @@ router.get('/', function(req, res) {
     }
     else
     {
-        console.log("GET");
-        //var html = '<html><body><form method="post" action="http://localhost:3000">Name: <input type="text" name="name" /><input type="submit" value="Submit" /></form></body>';
-        var html = fs.readFileSync('index.html');
-        res.writeHead(200, {'Content-Type': 'text/html'});
-        res.end(html);
+        res.json({ message: "GET" });
     }
 });
 
