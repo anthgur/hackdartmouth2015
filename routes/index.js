@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var request = require('request');
 
 router.post('/desktop', function(req, res) {
     if (req.method == 'POST') {
@@ -13,7 +14,7 @@ router.post('/desktop', function(req, res) {
 
 router.post('/webapp', function(req, res) {
     if (req.method == 'POST') {
-		res.json({ message: "webapp POST" });
+		res.redirect(307, 'http://maxrenke.com/computecoin/backend.php' + req.path);
     }
     else
     {
