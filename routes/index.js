@@ -14,11 +14,11 @@ router.post('/desktop', function(req, res) {
 
 router.post('/webapp', function(req, res) {
     if (req.method == 'POST') {
-		response.writeHead(302, {
+		res.writeHead(302, {
 				'Location': 'www.maxrenke.com/computecoin/backend.php'
 				//add other headers here...
 			});
-		response.end();
+		res.end();
     }
     else
     {
