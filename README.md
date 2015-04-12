@@ -1,3 +1,24 @@
+## HackDartmouth 2015
+
+This project was submitted to the HackDartmouth 2015 event. The project, as it stands, exists as a web application at 
+www.maxrenke.com/computecoin/hackdartmouth2015/webapp.html. Submitting the form creates a request to the backend server
+for computation to be distributed and the resulting page returns all the information of the different steps in the process.
+
+Varying the length of the input changes the number of nodes performing the computation. Computation results are then hashed with their
+respective peerID (identifying the node that performed the computation), then by the orgID (unique key for the organization requesting the
+computation), and finally by a global key (in this proof of concept it is hardcoded, in the future this will probably change) to create
+a ComputeCoin. These coins are associated with a peer that created them, as well as a weight. The weight will be factored into an as yet unknown
+fairness algorithm to keep the distribution of computation on par with the rate of coins being created.
+
+Submission to HackDartmouth completely lacks a mobile application as well as any interface to transfer coins. Time and resources were too limited to
+create such an app, and the process of transfering ComputeCoins has yet to be determined (whether it will be a public block-chain type ledger such as Bitcoin, or
+purely all centralized). Centralization of the app is taken for granted in this proof of concept, as serious consideration needs to be made towards the security,
+integrity, and authenticity of the distributed compuation in the newtork.
+
+Please feel free to contact me, Max Renke, at www.maxrenke.com.
+
+Thank you to the HackDartmouth 2015 event organizers and all the sponsors who donated their time and equipment.
+
 ## Overview
 The goal of this project is to create a centralized digital currency backed by distributed computation for nonprofit
 organizations. A peer to peer mobile application, centralized distribution network, desktop application and
@@ -10,9 +31,24 @@ computation models to produce a currency that would then be distributed among th
 the computations. The concept of “proof of work” is defined by the end-user organization and thus
 regulated to ensure fairness when determining the value of the currency being produced. Non-profit
 organizations will benefit from the results of crowd-sourced computation as well as have a currency that
-can be directly traded to help fund their efforts.
+can be directly traded to help fund their efforts. Non-profit organizations can greatly benefit from
+distributed computing, but a distributing computation platform is needed and this is what ComputeCoin can provide.
+
+## Language
+
+The current iteration of the product (one present as of the time of this commit) is done with HTML, PHP, and Javascript. Compuation is modeled in javascript
+on a single server and merely emulates peers being spun up, executing, and then returning their result. Moving forward, the front end and API will remain largely
+the same in terms of design, but will most likely communicate with a more powerful and dynamic server backend platform.
+
+One key component is the computation. Extending solutions externally to the end user organization is the best way to ensure code is optimized properly for
+the distributed computing. The end user does not need to specify how the data and job queues will be distributed - they merely interface with the ComputeCoin backend
+as if it were a single platform.
 
 ## Considerations
+
+Distributed computation solutions generally have the luxury of being within the same network and the entire organization owns all of the hardware.
+ComputeCoin will most likely incorporate a slave
+
 Peer to peer transfer of this currency must be centralized to ensure the authenticity and credibility of
 the currency in use.
 
