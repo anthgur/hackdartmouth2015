@@ -1,12 +1,13 @@
 <script type="text/javascript">
 function average(inputData){
 	var arr = JSON.parse(inputData);
-	var len = arr.length;
 	var sum = 0;
 	var index = document.getElementById("resultFrameNumber").value;
+	var len = arr[index].length;
 	for( i=0; i<len; i++){
-		sum += arr[index][i];
+		if( arr[index][i] ) sum += arr[index][i];
 	}
+	//var ave = sum/len;
 	var ave = sum/len;
 	document.getElementById("result").innerHTML = ave;
 	document.getElementById("resultField").value = ave;

@@ -16,7 +16,8 @@ function submitFrame(){
 <?php
 //$peerID = 0;//$_POST['peerID'];
 $name = $_POST['name'];
-$orgID = $_POST['orgID'];
+$hash = hash('sha256',$name,false);//$_POST['orgID'];
+$orgID = $hash & 65535; //0xFF
 $inputData = $_POST['inputData'];
 $procedure = $_POST['procedure'];
 $result = $_POST['result'];
@@ -53,6 +54,8 @@ echo "</style>
 
 echo "<body onload=\"submitFrame()\">";
 
+echo "<form action=\"webapp.html\"><input type=\"submit\" value=\"WebApp\"></form>";
+
 echo "<h3>$name ($orgID) Request</h3>";
 echo "<div class=\"boxed\">";
 echo "name: $name <br>";
@@ -63,13 +66,15 @@ echo "</div>";
 echo "<br>";
 
 echo "<h3> Distributed Node Computation </h3>";
-echo "<form method=\"post\" action=\"dispatch.php\"><input name=\"npeers\" id=\"npeers\" value=\"$npeers\">";
+echo "<form method=\"post\" action=\"dispatch.php\"><input type=\"hidden\" name=\"npeers\" id=\"npeers\" value=\"$npeers\">";
+echo "Using $npeers peers.";
 echo "<input type=\"hidden\" name=\"name\" value=\"$name\">";
 echo "<input type=\"hidden\" name=\"peerID\" id=\"peerID\">";
 echo "<input type=\"hidden\" name=\"orgID\" value=\"$orgID\">";
 echo "<input type=\"hidden\" name=\"procedure\" value=\"$procedure\">";
 echo "<input type=\"hidden\" name=\"inputData\" value=\"'$inputData'\">";
-echo "<input type=\"submit\"></form><br>";
+//echo "<input type=\"submit\"></form><br>";
+echo "</form><br>";
 for( $i=0; $i<$npeers; $i++){
 	echo " <iframe name=\"nodeFrame$i\" width=\"10%\" id=\"nodeFrame$i\" src=\"node.php\"></iframe>";
 }

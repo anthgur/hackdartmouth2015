@@ -2,7 +2,9 @@
 <head>
 <script>
 function onSubmit(){
-	var input = document.getElementById("inputData").value;
+	//var input = document.getElementById("inputData").value;
+	var e = document.getElementById("inputData");    
+	var input = e.options[e.selectedIndex].value; 
 	var arr = JSON.parse(input);
 	var inputLength = arr.length;
 	document.getElementById("inputLength").value = inputLength;
@@ -11,21 +13,24 @@ function onSubmit(){
 </head>
 <body>
 <form onsubmit="onSubmit()" action="dispatch.php" method="POST" enctype="application/json">	
+	<b>Organization Name:</b>
 	<input name='name' value='END_USER'>
-	
-	<input type="hidden" name='orgID' value='00002'>
-	
-	<input name='inputData' id="inputData" value='[[0,1,2,3,4,5],[0,1,2,3,4,5],[0,1,2,3,4,5],[0,1,2,3,4,5],[0,1,2,3,4,5],[0,1,2,3,4,5]]'>
-	
+	<br>
+	<b>Input Data:</b>
+	<select name='inputData' id="inputData">
+		<option selected="selected" value="[[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]]">Data 1</option>
+		<option value="[[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]]">Data 2</option>
+	</select>
 	<input type="hidden" name='inputLength' id="inputLength">
-	
+	<br>
+	<b>Procedure:</b>
 	<select name='procedure'>
 		<option selected>average</option>
 		<option>median</option>
 		<option>min</option>
 		<option>max</option>
 	</select>
-	
+	<br>
 	<input type="submit" value="Submit">
 	
 </form>
