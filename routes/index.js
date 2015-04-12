@@ -13,7 +13,10 @@ router.post('/desktop', function(req, res) {
 
 router.post('/webapp', function(req, res) {
     if (req.method == 'POST') {
-		res.send('Username: ' + req.body.name);
+		response.writeHead(302, {
+		'Location': 'www.maxrenke.com/computecoin/backend.php'
+		});
+		response.end();
     }
     else
     {
