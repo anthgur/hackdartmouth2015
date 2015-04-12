@@ -1,13 +1,23 @@
 var express = require('express');
 var router = express.Router();
 
-router.post('/webapp', function(req, res) {
+router.post('/desktop', function(req, res) {
     if (req.method == 'POST') {
-		res.json({ message: "POST" });
+		res.json({ message: "desktop POST" });
     }
     else
     {
-        res.json({ message: "GET" });
+        
+    }
+});
+
+router.post('/webapp', function(req, res) {
+    if (req.method == 'POST') {
+		res.json({ message: "webapp POST" });
+    }
+    else
+    {
+        
     }
 });
 
