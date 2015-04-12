@@ -2,11 +2,14 @@ var express = require('express');
 var bodyParser = require('body-parser')
 var router = express.Router();
 
-router.use(bodyParser.json());
+router.use(bodyParser());
 
 router.post('/webapp', function(req, res) {
     if (req.method == 'POST') {
-		res.json({ message: "POST" });
+		var userName = req.body.name;
+		  var html = 'Hello: ' + name + '.<br>' +
+					 '<a href="/">Try again.</a>';
+		  res.send(html);
     }
     else
     {
