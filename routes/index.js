@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var request = require('request');
 
 router.post('/desktop', function(req, res) {
     if (req.method == 'POST') {
