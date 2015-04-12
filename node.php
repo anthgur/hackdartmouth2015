@@ -12,7 +12,7 @@ function average(inputData){
 	document.getElementById("result").innerHTML = ave;
 	document.getElementById("resultField").value = ave;
 	
-	document.getElementById("weight").value = 1/len;
+	document.getElementById("weight").value = 1/arr.length;
 	document.getElementById("subset").innerHTML = arr[index];
 	document.forms["nodeResult"].submit();
 }
