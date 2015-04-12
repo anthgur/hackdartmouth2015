@@ -2,18 +2,22 @@ var express = require('express');
 var bodyParser = require('body-parser')
 var router = express.Router();
 
-router.use(bodyParser());
-
+router.post('/desktop', function(req, res) {
+    if (req.method == 'POST') {
+		res.json({ message: "POST desktop" });
+	}
+	else{
+		res.json({ message: "GET desktop" });
+	}
+	
+}
 router.post('/webapp', function(req, res) {
     if (req.method == 'POST') {
-		var userName = req.body.name;
-		  var html = 'Hello: ' + name + '.<br>' +
-					 '<a href="/">Try again.</a>';
-		  res.send(html);
+		res.json({ message: "POST webapp" });
     }
     else
     {
-        res.json({ message: "GET" });
+        res.json({ message: "GET webapp" });
     }
 });
 
