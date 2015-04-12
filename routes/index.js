@@ -6,7 +6,7 @@ router.use(bodyParser.json());
 
 router.post('/webapp', function(req, res) {
     if (req.method == 'POST') {
-		res.json({ message: request.body.name });
+		res.json({ message: "POST" });
     }
     else
     {
