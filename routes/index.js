@@ -1,5 +1,4 @@
 var express = require('express');
-var bodyParser = require('body-parser')
 var router = express.Router();
 
 router.post('/desktop', function(req, res) {
@@ -10,7 +9,8 @@ router.post('/desktop', function(req, res) {
 		res.json({ message: "GET desktop" });
 	}
 	
-}
+});
+
 router.post('/webapp', function(req, res) {
     if (req.method == 'POST') {
 		res.json({ message: "POST webapp" });
