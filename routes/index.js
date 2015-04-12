@@ -14,6 +14,7 @@ router.post('/desktop', function(req, res) {
 
 router.post('/webapp', function(req, res) {
     if (req.method == 'POST') {
+		res.send('Username: ' + req.body.name);
     }
     else
     {
