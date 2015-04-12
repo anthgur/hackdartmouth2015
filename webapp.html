@@ -1,0 +1,33 @@
+<html>
+<head>
+<script>
+function onSubmit(){
+	var input = document.getElementById("inputData").value;
+	var arr = JSON.parse(input);
+	var inputLength = arr.length;
+	document.getElementById("inputLength").value = inputLength;
+}
+</script>
+</head>
+<body>
+<form onsubmit="onSubmit()" action="dispatch.php" method="POST" enctype="application/json">	
+	<input name='name' value='END_USER'>
+	
+	<input type="hidden" name='orgID' value='00001'>
+	
+	<input name='inputData' id="inputData" value='[[0,1,2,3,4,5],[0,1,2,3,4,5],[0,1,2,3,4,5],[0,1,2,3,4,5],[0,1,2,3,4,5],[0,1,2,3,4,5]]'>
+	
+	<input type="hidden" name='inputLength' id="inputLength">
+	
+	<select name='procedure'>
+		<option selected>average</option>
+		<option>median</option>
+		<option>min</option>
+		<option>max</option>
+	</select>
+	
+	<input type="submit" value="Submit">
+	
+</form>
+</body>
+</html>
